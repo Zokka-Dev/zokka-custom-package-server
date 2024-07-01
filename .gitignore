@@ -1,0 +1,17 @@
+*.db
+generated-static-files
+
+elm-stuff
+zokka-stuff
+dist
+cabal-dev
+.cabal-sandbox/
+cabal.sandbox.config
+.DS_Store
+*~
+travis.log
+dist-newstyle
+.idea
+
+# Scratch files for easy personal use
+*.scratch.*
