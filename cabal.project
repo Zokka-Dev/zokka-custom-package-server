@@ -1,0 +1,6 @@
+packages:.
+
+allow-newer: argon2:base
+
+package *
+    optimization: 2

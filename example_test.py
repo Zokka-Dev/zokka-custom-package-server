@@ -103,7 +103,7 @@ def run_server_in_background(skip_initial_cabal_build=False):
         run_command(["cabal", "build"])
     if not skip_initial_cabal_build:
         command = [
-            f"cabal run myPackage -- --port=3000 --database-file={SQLITE_DATABASE_FILENAME} --initialization-script=initialize_tables.sql --external-website-url=https://localhost:3000",
+            f"cabal run package-repository-server -- --port=3000 --database-file={SQLITE_DATABASE_FILENAME} --initialization-script=initialize_tables.sql --external-website-url=https://localhost:3000",
         ]
     else:
         location_of_zokka_executable = run_command(["cabal", "list-bin", "myPackage"]).rstrip()
@@ -154,6 +154,7 @@ if __name__ == "__main__":
         dashboard_output = get_dashboard(user_login_token)
         should_shutdown_server_event.set()
         server_thread.join()
+        print("Successfully ran all tests!")
     finally:
         if "should_shutdown_server_event" in locals():
             should_shutdown_server_event.set()
